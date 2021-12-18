@@ -29,17 +29,18 @@ int main(int argc, char** argv) {
 			}
 			case 2: {
 				ligaHN->actualizarTabla();
-				ligaHN->exportarTablaCSV("salida.cvs");
+				ligaHN->exportarTablaCSV("tabla.cvs");
 				break;
 			}
 			case 3: {
-
+				cout<<"PARTIDOS: "<<endl;
+				ligaHN->leerPartidos("partidos.txt");
 
 				break;
 			}
 			case 4: {
-
-
+				cout<<"EQUIPOS: "<<endl;
+				ligaHN->leerEquipos("equipos.txt");
 
 				break;
 			}
@@ -55,7 +56,7 @@ int menu() {
 	int opc=0;
 	cout << "#######Menu######\n"
 	     "1) Leer Archivo \n"
-	     "2) Exportar Tabla \n"
+	     "2) Exportar Tabla (Para exportar tabla primero tiene que usar opcion 1 leer el archivo) \n"
 	     "3) Imprimir Partidos \n"
 	     "4) Imprimir Equipos\n"
 	     "5) Imprimir Tabla de Posiciones\n"
