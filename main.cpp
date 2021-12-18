@@ -21,16 +21,15 @@ int main(int argc, char** argv) {
 		switch(opcion) {
 			case 1: {
 				cout<<"EQUIPOS: "<<endl;
-			ligaHN->leerEquipos("equipos.txt"); 
-			cout<<endl;
-			cout<<"PARTIDOS: "<<endl;
-			ligaHN->leerPartidos("partidos.txt");
-				
-				        
+				ligaHN->leerEquipos("equipos.txt");
+				cout<<endl;
+				cout<<"PARTIDOS: "<<endl;
+				ligaHN->leerPartidos("partidos.txt");
 				break;
-			}                     
+			}
 			case 2: {
-
+				ligaHN->actualizarTabla();
+				ligaHN->exportarTablaCSV("salida.cvs");
 				break;
 			}
 			case 3: {
@@ -45,7 +44,7 @@ int main(int argc, char** argv) {
 				break;
 			}
 			case 5: {
-
+cout<<endl;
 			}
 		}
 	}

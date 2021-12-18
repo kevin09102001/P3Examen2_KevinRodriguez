@@ -28,14 +28,10 @@ using std::stringstream;
 
 class Liga{
 public:
-	Liga(vector<Partido*> partidos, Tabla* tablaPosiciones){
+    Liga(vector<Partido*> partidos, Tabla* tablaPosiciones){
         this->partidos = partidos;
         this->tablaPosiciones = new Tabla();
     }
-    /*Liga(vector<Partido*> partidos, Tabla* tablaPosiciones){
-        this->partidos = partidos;
-        this->tablaPosiciones = tablaPosiciones;
-    }*/
     
 //    Liga(const Liga& orig){
 //        
@@ -83,7 +79,7 @@ public:
         }
     }
     
-   void leerEquipos(string archivoEntrada){
+    void leerEquipos(string archivoEntrada){
         
         ifstream lectura;
         lectura.open(archivoEntrada);
@@ -120,32 +116,48 @@ public:
         for(int i=0; i<this->tablaPosiciones->getFilas().size(); i++){
             FilaTabla* ftTemp = tablaPosiciones->getFilas()[i];
             //cout << this->tablaPosiciones->getFilas()[i]->toString();
+            //cout << this->tablaPosiciones->getFilas()[i]->getEquipo()->getNombre();
             cout<<"nombre: "<< ftTemp->getEquipo()->getNombre() << endl;
             //cout << ftTemp->toString();
         }
     }
     
     void actualizarTabla(){
-//        for (int i=0; i<partidos.size(); i++){
-//            for(int j=0; j<tablaPosiciones->getFilas().size(); j++){
-//                tablaPosiciones[j] + partidos[i];
-//            } 
-//        }
-        
+        cout << this->tablaPosiciones->getFilas()[1]->getEquipo()->getNombre();
         for (int i=0; i<partidos.size(); i++){
             //partidos[i] + tablaPosiciones;
             Partido* pTemp = partidos[i];
             //tablaPosiciones->operator +(pTemp);
             //tablaPosiciones + ((Partido*) partidos[i]);
             *this->tablaPosiciones + pTemp;
+            //cout << i;
         }
     }
-    void exportarTablaCSV(char* archivoSalida) {
+    void exportarTablaCSV(string archivoSalida) {
         ofstream escritura;
         string contenidoGuardar = "";
 
         for (int j = 0; j < tablaPosiciones->getFilas().size(); j++) {
-     contenidoGuardar += tablaPosiciones->getFilas()[j]->toString();
+            //FilaTabla* ftTemp = tablaPosiciones->getFilas()[j];
+            //contenidoGuardar += tablaPosiciones->getFilas()[j]->toString();
+//            contenidoGuardar += ftTemp->getEquipo()->getNombre();
+//            contenidoGuardar += ftTemp->getcantPartidosJugados();
+//            contenidoGuardar += ftTemp->getpartidosGanados();
+//            contenidoGuardar += ftTemp->getpartidosEmpatados();
+//            contenidoGuardar += ftTemp->getpartidosPerdidos();
+//            contenidoGuardar += ftTemp->getgolesAnotados();
+//            contenidoGuardar += ftTemp->getgolesRecibidos();
+            
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getEquipo()->getNombre();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getcantPartidosJugados();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getpartidosGanados();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getpartidosEmpatados();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getpartidosPerdidos();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getgolesAnotados();
+//            contenidoGuardar += tablaPosiciones->getFilas()[j]->getgolesRecibidos();
+            
+            contenidoGuardar += tablaPosiciones->getFilas()[j]->toStringh();
+            
             //contenidoGuardar += ((FilaTabla*)tablaPosiciones->getFilas())[j]->toString();
         }
         
@@ -163,10 +175,8 @@ public:
 private:
     vector<Partido*> partidos;
     Tabla* tablaPosiciones;
-    
 };
 
 
 
-#endif 
-
+#endif /* LIGA_HPP */
