@@ -20,12 +20,15 @@ int main(int argc, char** argv) {
 	while((opcion = menu()) != 6) {
 		switch(opcion) {
 			case 1: {
-				ligaHN->leerPartidos("partidos.txt");
-				cout<<endl;
-				ligaHN->leerEquipos("equipos.txt");
+				cout<<"EQUIPOS: "<<endl;
+			ligaHN->leerEquipos("equipos.txt"); 
+			cout<<endl;
+			cout<<"PARTIDOS: "<<endl;
+			ligaHN->leerPartidos("partidos.txt");
 				
+				        
 				break;
-			}
+			}                     
 			case 2: {
 
 				break;
