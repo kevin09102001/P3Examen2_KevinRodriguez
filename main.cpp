@@ -33,19 +33,75 @@ int main(int argc, char** argv) {
 				break;
 			}
 			case 3: {
-				cout<<"PARTIDOS: "<<endl;
-				ligaHN->leerPartidos("partidos.txt");
+				cout<<"PARTIDOS:"<<endl;
+				ifstream file("partidos.txt");
+				if(file.is_open()) {
+					while(!file.eof()) {
+						string linea;
+						getline(file,linea);
+						stringstream ln;
+						ln<<linea;
+						string token;
+						int col=0;
+						while(getline(ln,token,',')) {
+							if(col == 0) {
+								cout<<token<<" - ";
+								col++;
+							} else if(col == 1) {
+								cout<<token<<": ",
+								    col++;
+							} else if(col == 2) {
+								cout<<token<<"-";
+								col++;
+							} else {
+								cout<<token<<endl;
+							}
+						}
+					}
+				}
+				file.close();
 
 				break;
 			}
 			case 4: {
-				cout<<"EQUIPOS: "<<endl;
-				ligaHN->leerEquipos("equipos.txt");
+				cout<<"EQUIPOS:"<<endl;
+				ifstream file("equipos.txt");
+				if(file.is_open()) {
+					while(!file.eof()) {
+						string linea;
+						getline(file,linea);
+						stringstream ss;
+						ss<<linea;
+						cout<<ss.str()<<endl;
+					}
+				}
+				file.close();
 
 				break;
 			}
 			case 5: {
-cout<<endl;
+				ifstream file("tabla.csv");
+				if(file.is_open()) {
+					while(!file.eof()) {
+						string linea;
+						getline(file,linea);
+						stringstream ln;
+						ln<<linea;
+						string token;
+						int col=0;
+						while(getline(ln,token,',')) {
+							if(col < 7) {
+								cout<<token<<" ";
+								col++;
+							} else {
+								cout<<token<<endl;
+							}
+						}
+					}
+				}
+				file.close();
+				cout<<"Lo intentamos hay algo de code pero no se pudo :("<<endl<<"\n\n";
+				
 			}
 		}
 	}
