@@ -7,29 +7,41 @@
 using std::ifstream;
 using std::ofstream;
 using namespace std;
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int menu();
+vector<Partido*> partidos;
+Tabla* tablaPosiciones;
+Liga* ligaHN = new Liga(partidos, tablaPosiciones);
+
 int main(int argc, char** argv) {
 	int opcion=0;
 	while((opcion = menu()) != 6) {
 		switch(opcion) {
 			case 1: {
-				break;
-			}
-			case 2:{
+				ligaHN->leerPartidos("partidos.txt");
+				cout<<endl;
+				ligaHN->leerEquipos("equipos.txt");
 				
 				break;
 			}
-			case 3:{
-				
+			case 2: {
+
 				break;
 			}
-			case 4:{
-				
+			case 3: {
+
+
 				break;
 			}
-			case 5:{
+			case 4: {
+
+
+
+				break;
+			}
+			case 5: {
 
 			}
 		}
@@ -43,9 +55,9 @@ int menu() {
 	     "1) Leer Archivo \n"
 	     "2) Exportar Tabla \n"
 	     "3) Imprimir Partidos \n"
-	     "4)Imprimir Equipos\n"
-	     "5)Imprimir Tabla de Posiciones\n"
-	     "6)Salir\n"
+	     "4) Imprimir Equipos\n"
+	     "5) Imprimir Tabla de Posiciones\n"
+	     "6) Salir\n"
 	     "Ingrese la opcion que desee" << endl;
 	cin >> opc;
 	return opc;

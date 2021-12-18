@@ -7,32 +7,48 @@
 #include <vector>           //librería estándar de los vectores
 using std::vector;
 
-class Tabla{
-public:
-    Tabla(vector<FilaTabla*> filas){
-        this->filas = filas;
-    }
-    
+class Tabla {
+	public:
+		Tabla(vector<FilaTabla*> filas) {
+			this->filas = filas;
+		}
+		Tabla(){
+			
+		}
+
 //    Tabla(const Tabla& orig){
-//        
+//
 //    }
 //    ~Tabla(){
-//        
+//
 //    }
-    void operator+(Partido*){
-        
-    }
-    
-    void ordernarTabla(){
-        
-    }
-    
-    void operator<<(char* archivoSalida){
-        
-    }
-    
-private:
-    vector<FilaTabla*> filas;
+
+		void operator+(Partido* partidoComparar) {
+			for (int j = 0; j < this->filas.size(); j++) {
+//            if(partidoComparar){
+//
+//            }
+			}
+		}
+
+		void ordernarTabla() {
+
+		}
+
+		void operator<<(char* archivoSalida) {
+
+		}
+
+		vector<FilaTabla*>& getFilas() {
+			return this->filas;
+		}
+
+		void addFila(FilaTabla* fTabla) {
+			this->filas.push_back(fTabla);
+		}
+
+	private:
+		vector<FilaTabla*> filas;
 };
 
 
